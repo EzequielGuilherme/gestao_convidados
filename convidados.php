@@ -34,7 +34,7 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nome convidado</th>
-              <th scope="col">Acompanhantes</th>
+              <th scope="col">Acompanhanteeeees</th>
               <th scope="col">Ação</th>
             </tr>
           </thead>
