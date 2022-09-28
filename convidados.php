@@ -20,10 +20,10 @@
         <h2>Lista de Convidados</h2>
       </div>
           <div class="col-auto">
-            <input type="text"class="form-control"id="text1"name="nome"placeholder="Nome"/>
+            <input type="text"class="form-control" id="nome" name="nome"placeholder="Nome"/>
           </div>
           <div class="col-auto">
-            <input type="number"class="form-control" id="text2" name="acompanhantes" placeholder="Acompanhantes"/>
+            <input type="number"class="form-control" id="acompanhates" name="acompanhantes" placeholder="Acompanhantes"/>
           </div>
           <div class="col-auto">
             <button type="submit" class="btn btn-secondary mb-3">Salvar</button>
@@ -34,7 +34,7 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nome convidado</th>
-              <th scope="col">Acompanhanteeeees</th>
+              <th scope="col">Acompanhantes</th>
               <th scope="col">Ação</th>
             </tr>
           </thead>
@@ -46,7 +46,7 @@
               <td> <?php echo $convidado['id_convidados']?> </td>
               <td> <?php echo $convidado['Nome_convidado']?> </td>
               <td> <?php echo $convidado['Acompanhates']?> </td>
-              <td> <a href="edit.php?id=<?php  echo $convidado['id_convidados']; ?> "><button type="button" class="btn btn-info">Atualizar</button></a></td>
+              <td> <button type="button" class="btn btn-info" onclick="atualizar()"> Atualizar </button> </td>
               <td> <a href="excluir.php?id=<?php  echo $convidado['id_convidados']; ?> "><button type="button" class="btn btn-danger">Excluir</button></a></td> 
               
             </tr>
@@ -55,6 +55,12 @@
             ?>
         </table>
     </div>
+    <script>
+         function atualizar(nome, acompanhates){
+        document.getElementById("nome").setAttribute('value',"teste");
+        document.getElementById("acompanhates").setAttribute('value',"2");
+      }
+    </script>
   </body>
   </html>
   
