@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Convidados</title>
+    <title>Convidadossss</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap\css\bootstrap.css" />
     <script src="bootstrap\js\bootstrap.js"></script>
@@ -20,6 +20,7 @@
         <h2>Lista de Convidados</h2>
       </div>
           <div class="col-auto">
+            <input type="hidden">
             <input type="text"class="form-control" id="nome" name="nome"placeholder="Nome"/>
           </div>
           <div class="col-auto">
@@ -29,7 +30,7 @@
             <button type="submit" class="btn btn-secondary mb-3">Salvar</button>
           </div>
         </form>
-        <table class="table">
+        <table class="table" id="table">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -44,10 +45,10 @@
               ?>
             <tr>
               <td> <?php echo $convidado['id_convidados']?> </td>
-              <td> <?php echo $convidado['Nome_convidado']?> </td>
-              <td> <?php echo $convidado['Acompanhates']?> </td>
-              <td> <button type="button" class="btn btn-info" onclick="atualizar()"> Atualizar </button> </td>
-              <td> <a href="excluir.php?id=<?php  echo $convidado['id_convidados']; ?> "><button type="button" class="btn btn-danger">Excluir</button></a></td> 
+              <td id="id_nome<?php echo $convidado['id_convidados']?>"><?php echo $convidado['Nome_convidado']?> </td>
+              <td id="id_acomp<?php echo $convidado['id_convidados']?>"><?php echo $convidado['Acompanhates']?> </td>
+              <td> <button type="button" class="btn btn-info" onclick="atualizar(<?php  echo $convidado['id_convidados'];?>)"> Atualizar </button> </td>
+              <td> <a href="excluir.php?id=<?php  echo $convidado['id_convidados'];?>"><button type="button" class="btn btn-danger">Excluir</button></a></td> 
               
             </tr>
             <?php
@@ -56,9 +57,14 @@
         </table>
     </div>
     <script>
-         function atualizar(nome, acompanhates){
-        document.getElementById("nome").setAttribute('value',"teste");
-        document.getElementById("acompanhates").setAttribute('value',"2");
+         function atualizar(id){
+          var nome = document.getElementById("id_nome"+id).innerText;
+          var acompanhante = document.getElementById("id_acomp"+id).innerText;
+          document.getElementById("nome").setAttribute('value',nome);
+          document.getElementById("acompanhates").setAttribute('value',acompanhante); 
+          document.getElementById("id_convidados").setAttribute('value',id);
+          alert(nome);
+          // alert("ZEKA");
       }
     </script>
   </body>
