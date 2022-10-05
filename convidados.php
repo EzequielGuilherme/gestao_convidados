@@ -20,7 +20,7 @@
         <h2>Lista de Convidados</h2>
       </div>
           <div class="col-auto">
-            <input type="hidden">
+            <input type="hidden" id="id_convidados" name="id_convidados">
             <input type="text"class="form-control" id="nome" name="nome"placeholder="Nome"/>
           </div>
           <div class="col-auto">

@@ -15,9 +15,14 @@ if (isset ($_GET['nome']))
 if($conexao->connect_error)
 {
     echo "Não foi possivel conectar";
-}
-
-else 
+}else if(isset($_GET['id_convidados']) && ($_GET['id_convidados'] !="")){
+  $id = $_GET['id_convidados'];
+  $sqlUpdate = "UPDATE convidados set Nome_convidado='$_GET[nome]', Acompanhates=$_GET[acompanhantes] WHERE id_convidados='$id'";
+  $conexao -> query($sqlUpdate);
+  $resultado = $conexao -> query("SELECT*FROM convidados");
+  //  echo  "<p1>teste</p1>";
+  // "<p1>Passei aqui<p1>";
+}else 
 {
   //  echo 'BELEZA';
     $sqlgravar = "INSERT INTO convidados(Nome_convidado, Acompanhates) values ('$_GET[nome]', $_GET[acompanhantes])";
