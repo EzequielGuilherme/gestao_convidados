@@ -51,6 +51,5 @@ if($conexao->connect_error)
       //  echo "</br>", $convidado["Nome_convidado"];
 
     //}
-// tenho que comentar para salvar 
 ?>
 
