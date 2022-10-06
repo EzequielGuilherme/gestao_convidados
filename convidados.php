@@ -20,21 +20,22 @@
         <h2>Lista de Convidados</h2>
       </div>
           <div class="col-auto">
-            <input type="text"class="form-control"id="text1"name="nome"placeholder="Nome"/>
+            <input type="hidden" id="id_convidados" name="id_convidados">
+            <input type="text"class="form-control" id="nome" name="nome"placeholder="Nome"/>
           </div>
           <div class="col-auto">
-            <input type="number"class="form-control" id="text2" name="acompanhantes" placeholder="Acompanhantes"/>
+            <input type="number"class="form-control" id="acompanhates" name="acompanhantes" placeholder="Acompanhantes"/>
           </div>
           <div class="col-auto">
             <button type="submit" class="btn btn-secondary mb-3">Salvar</button>
           </div>
         </form>
-        <table class="table">
+        <table class="table" id="table">
           <thead>
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nome convidado</th>
-              <th scope="col">Acompanhanteeeees</th>
+              <th scope="col">Acompanhantes</th>
               <th scope="col">Ação</th>
             </tr>
           </thead>
@@ -44,10 +45,10 @@
               ?>
             <tr>
               <td> <?php echo $convidado['id_convidados']?> </td>
-              <td> <?php echo $convidado['Nome_convidado']?> </td>
-              <td> <?php echo $convidado['Acompanhates']?> </td>
-              <td> <a href="edit.php?id=<?php  echo $convidado['id_convidados']; ?> "><button type="button" class="btn btn-info">Atualizar</button></a></td>
-              <td> <a href="excluir.php?id=<?php  echo $convidado['id_convidados']; ?> "><button type="button" class="btn btn-danger">Excluir</button></a></td> 
+              <td id="id_nome<?php echo $convidado['id_convidados']?>"><?php echo $convidado['Nome_convidado']?> </td>
+              <td id="id_acomp<?php echo $convidado['id_convidados']?>"><?php echo $convidado['Acompanhates']?> </td>
+              <td> <button type="button" class="btn btn-info" onclick="atualizar(<?php  echo $convidado['id_convidados'];?>)"> Atualizar </button> </td>
+              <td> <a href="excluir.php?id=<?php  echo $convidado['id_convidados'];?>"><button type="button" class="btn btn-danger">Excluir</button></a></td> 
               
             </tr>
             <?php
@@ -55,6 +56,17 @@
             ?>
         </table>
     </div>
+    <script>
+         function atualizar(id){
+          var nome = document.getElementById("id_nome"+id).innerText;
+          var acompanhante = document.getElementById("id_acomp"+id).innerText;
+          document.getElementById("nome").setAttribute('value',nome);
+          document.getElementById("acompanhates").setAttribute('value',acompanhante); 
+          document.getElementById("id_convidados").setAttribute('value',id);
+          // alert(nome);
+          // alert("ZEKA");
+      }
+    </script>
   </body>
   </html>
   
